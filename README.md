@@ -15,3 +15,7 @@ radom_walk = walk.GeometricBrownianMpotion(s0, mu, sigma, T)
 random_walk.monte_carlo(plot=True)
 ```
 ![Example](https://github.com/peterpeluso/walk/blob/master/img/figure_1.png)
+
+## Release History
+* 0.0.1
+    * Work in progress
