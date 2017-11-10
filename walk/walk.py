@@ -69,7 +69,7 @@ class RandomWalkBase:
         plt.plot(self.t, self.S)
         plt.show()
 
-    def monte_carlo_walks(self, n=50):
+    def monte_carlo(self, n=50, plot=True):
         """Generates n random walks
 
         Parameters
@@ -90,20 +90,21 @@ class RandomWalkBase:
 
         self.S_arr = np.array(self.S_arr)
 
-        plt.subplot(2, 1, 1)
+        if plot == True:
+            plt.subplot(2, 1, 1)
 
-        for i in range(n):
-            plt.plot(self.t, self.S_arr[i])
+            for i in range(n):
+                plt.plot(self.t, self.S_arr[i])
 
-        plt.xlabel("Time")
-        plt.ylabel("Price")
+            plt.xlabel("Time")
+            plt.ylabel("Price")
 
-        plt.subplot(2, 1, 2)
+            plt.subplot(2, 1, 2)
 
-        plt.xlabel("Price")
-        plt.hist(self.S_arr[:, int(self.N - 1)],  bins=10)
-        plt.axvline(self.s0, color="black")
-        plt.show()
+            plt.xlabel("Price")
+            plt.hist(self.S_arr[:, int(self.N - 1)],  bins=10)
+            plt.axvline(self.s0, color="black")
+            plt.show()
 
     def to_df(self):
         self.df = pd.DataFrame({'t': self.t, 'S': self.S})
