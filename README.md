@@ -16,6 +16,13 @@ random_walk.monte_carlo(plot=True)
 ```
 ![Example](https://github.com/peterpeluso/walk/blob/master/img/figure_1.png)
 
+## Development setup
+Install on linux
+``` 
+git clone https://github.com/peterpeluso/walk
+cd walk
+pip install -e walk
+```
 ## Release History
 * 0.0.1
     * Work in progress
