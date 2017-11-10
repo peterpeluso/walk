@@ -1,7 +1,2 @@
 # Walk
-## Generate stock price random walk
-
-### Contains following random processes:
-* Geometric Brownian 
-* Jump Duffusion
-
+A library for modelling asset prices using random walks
