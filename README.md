@@ -14,4 +14,4 @@ T = 1
 radom_walk = walk.GeometricBrownianMpotion(s0, mu, sigma, T)
 random_walk.monte_carlo(plot=True)
 ```
-[Example]: https://github.com/peterpeluso/walk/blob/master/img/figure_1.png
+[[https://github.com/peterpeluso/walk/blob/master/img/figure_1.png|alt= octocat]]
