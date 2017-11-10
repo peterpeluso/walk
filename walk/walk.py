@@ -6,25 +6,25 @@ import abc
 import pandas as pd
 np.set_printoptions(threshold=10)
 
-
-def max(x, y):
-    if x > y:
-        return x
-    else:
-        y
-
-
 class RandomWalkBase:
+    """Base Class for creating random walk classes """
     __metaclass__ = abc.ABCMeta
 
     def __init__(self, S0, mu, sigma, T, dt=0.00396825396):
         """
-        Args:
-        S0 (double) : starting stock price
-        sigma (double) : stock volatility
-        mu (double) : drift term
-        T (int) : number of days simulated
-        dt (double) : step size
+        Parameters
+        ----------
+
+        S0 : double 
+            starting stock price
+        sigma : double
+            stock volatility
+        mu : double
+             drift term
+        T : int 
+            number of days simulated
+        dt : double, optional
+            step size
         """
 
         self.s0 = S0
@@ -33,25 +33,54 @@ class RandomWalkBase:
         self.T = T
         self.dt = dt
         self.N = round(T/self.dt)
+        """int : number of steps """
         self.S = []
+        """ list of double : used to store generated random walk """
         self.t = None
+        """ np array : used to store every step from 0 to T """
         self.df = None
+        """ pandas df: used to store multiple walks for monte carlo """
 
     @abc.abstractmethod
     def random_walk(self):
+        """ generates a random walk
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None 
+        """
         pass
 
     def plot(self):
-        """plots the random walk"""
+        """plots the random walk
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None 
+        """
         self.random_walk()
         plt.plot(self.t, self.S)
         plt.show()
 
     def monte_carlo_walks(self, n=50):
-        """
-        Generates n random walks
-        Args:
-        n (double) : number of random walks to generate
+        """Generates n random walks
+
+        Parameters
+        ----------
+        n : double , optional
+            number of random walks to generate
+
+        Returns
+        -------
+        None
+
         """
         self.S_arr = []
 
@@ -101,16 +130,27 @@ class JumpDiffusion(RandomWalkBase):
     def __init__(self, S0, mu, sigma, T, mu_j, sigma_j, lamda,
                  dt=0.00396825396):
         """
-        Args:
-        S0 (double) : starting stock price
-        sigma (double) : stock volatility
-        mu (double) : drift term
-        T (int) : number of days simulated
-        mu_j (double) : mean of jump size distribution
-        sigma_j (double) : stdev of jump size distribution
-        lamda (double) : probability of a jump [0,T]
-        dt (double) : step size
+        Parameters
+        ----------
+
+        S0 : double 
+            starting stock price
+        sigma : double
+            stock volatility
+        mu : double
+             drift term
+        T : int 
+            number of days simulated
+        mu_j : double
+            mu of jump size
+        sigma_j: double
+            sigma of jump size
+        lamda : double
+            lambda of jump
+        dt : double, optional
+            step size
         """
+
 
         RandomWalkBase.__init__(self, S0, sigma, mu, T, dt)
         self.mu_j = mu_j
@@ -118,7 +158,15 @@ class JumpDiffusion(RandomWalkBase):
         self.lamda = lamda
 
     def random_walk(self):
-        """ generates random walk """
+        """ generates a random walk
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None 
+        """
 
         self.t = np.linspace(0, self.T, self.N)
         W = np.random.standard_normal(size=int(self.N))
@@ -150,17 +198,7 @@ class __TTProcess(JumpDiffusion):
     """ This is a private class that is an experimental random
         walk I am working on """
     def __init__(self, S0, mu, sigma, T, mu_j, sigma_j, dt=0.00396825396):
-        """
-        Args:
-        S0 (double) : starting stock price
-        sigma (double) : stock volatility
-        mu (double) : drift term
-        T (int) : number of days simulated
-        mu_j (double) : mean of jump size distribution
-        sigma_j (double) : stdev of jump size distribution
-        lamda (double) : probability of a jump [0,T]
-        dt (double) : step size
-        """
+
         JumpDiffusion.__init__(self, S0, mu, sigma, T, mu_j, sigma_j, None, dt)
         self.rand_jump = []
         self.sized_jump = []
@@ -203,3 +241,63 @@ class __TTProcess(JumpDiffusion):
                         Y[ix] = jump_sizes[count-1]
         L = np.add(X, Y)
         self.S = self.s0*np.exp(L)
+
+
+class Vasick(RandomWalkBase):
+    """Vasick model, useful in modelling short term interest rate"""
+    def __init__(self, r, a, b, sigma, T, dt=0.00396825396):
+
+        RandomWalkBase.__init__(self, r, b, sigma, T, dt)
+        """
+        Parameters
+        ----------
+
+        r : double 
+            starting interest rate
+        a : double
+            speed of reversion
+        b : double
+            long term mean
+        sigma: double
+            Instantaneous volatility
+        T : int 
+            number of days simulated
+        dt : double, optional
+            step size
+
+        """
+
+        self.a = a
+        self.r = self.s0
+        self.b = self.mu
+
+    def random_walk(self):
+        """ generates a random walk
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None 
+
+        """
+        self.t = np.linspace(0, self.T, self.N)
+        W = np.random.standard_normal(size=int(self.N))
+        self.rt =  np.random.standard_normal(size=int(self.N))
+        print(self.rt)
+        self.rt[0] = self.r
+        for i in range(1,self.T):
+            self.rt[i] = (self.a *(self.b - self.rt[i-1]))*self.dt + (self.sigma * math.sqrt(self.dt)* W[i])
+        self.S = self.rt
+        print(W)
+        print(self.S)
+
+
+def main():
+
+    x = Vasick(0.03, 0.3, .1, 0.03, 1)
+    x.monte_carlo_walks()
+
+if __name__ == '__main__':
+    main()

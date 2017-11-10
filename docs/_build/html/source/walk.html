@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>walk package &#8212; Walk 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Walk 0.1 documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="walk-package">
+<h1>walk package<a class="headerlink" href="#walk-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="walk-main-module">
+<h2>walk.main module<a class="headerlink" href="#walk-main-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="walk-market-module">
+<h2>walk.market module<a class="headerlink" href="#walk-market-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="walk-portfolio-module">
+<h2>walk.portfolio module<a class="headerlink" href="#walk-portfolio-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-walk.signals">
+<span id="walk-signals-module"></span><h2>walk.signals module<a class="headerlink" href="#module-walk.signals" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="walk.signals.SignalBase">
+<em class="property">class </em><code class="descclassname">walk.signals.</code><code class="descname">SignalBase</code><a class="headerlink" href="#walk.signals.SignalBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="walk-simulation-module">
+<h2>walk.simulation module<a class="headerlink" href="#walk-simulation-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-walk.stock">
+<span id="walk-stock-module"></span><h2>walk.stock module<a class="headerlink" href="#module-walk.stock" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="walk.stock.Stock">
+<em class="property">class </em><code class="descclassname">walk.stock.</code><code class="descname">Stock</code><span class="sig-paren">(</span><em>symbol</em>, <em>S0</em>, <em>mu</em>, <em>sigma</em>, <em>T</em>, <em>mu_j</em>, <em>sigma_j</em>, <em>lamda</em>, <em>dt=0.00396825396</em><span class="sig-paren">)</span><a class="headerlink" href="#walk.stock.Stock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-walk.walk">
+<span id="walk-walk-module"></span><h2>walk.walk module<a class="headerlink" href="#module-walk.walk" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="walk.walk.GeometricBrownianMotion">
+<em class="property">class </em><code class="descclassname">walk.walk.</code><code class="descname">GeometricBrownianMotion</code><span class="sig-paren">(</span><em>S0</em>, <em>mu</em>, <em>sigma</em>, <em>T</em>, <em>dt=0.00396825396</em><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.GeometricBrownianMotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#walk.walk.RandomWalkBase" title="walk.walk.RandomWalkBase"><code class="xref py py-class docutils literal"><span class="pre">walk.walk.RandomWalkBase</span></code></a></p>
+<p>simulates geometric brownian motion with drift</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">monte_carlo_walks</span></code>([n])</td>
+<td>Generates n random walks</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code>()</td>
+<td>plots the random walk</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#walk.walk.GeometricBrownianMotion.random_walk" title="walk.walk.GeometricBrownianMotion.random_walk"><code class="xref py py-obj docutils literal"><span class="pre">random_walk</span></code></a>()</td>
+<td>generates the random walk and stores in numpy arrr S</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">to_df</span></code>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="walk.walk.GeometricBrownianMotion.random_walk">
+<code class="descname">random_walk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.GeometricBrownianMotion.random_walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates the random walk and stores in numpy arrr S</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="walk.walk.JumpDiffusion">
+<em class="property">class </em><code class="descclassname">walk.walk.</code><code class="descname">JumpDiffusion</code><span class="sig-paren">(</span><em>S0</em>, <em>mu</em>, <em>sigma</em>, <em>T</em>, <em>mu_j</em>, <em>sigma_j</em>, <em>lamda</em>, <em>dt=0.00396825396</em><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.JumpDiffusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#walk.walk.RandomWalkBase" title="walk.walk.RandomWalkBase"><code class="xref py py-class docutils literal"><span class="pre">walk.walk.RandomWalkBase</span></code></a></p>
+<p>Geometric brownian motion with jump process</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">monte_carlo_walks</span></code>([n])</td>
+<td>Generates n random walks</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code>()</td>
+<td>plots the random walk</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#walk.walk.JumpDiffusion.random_walk" title="walk.walk.JumpDiffusion.random_walk"><code class="xref py py-obj docutils literal"><span class="pre">random_walk</span></code></a>()</td>
+<td>generates a random walk</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">to_df</span></code>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="walk.walk.JumpDiffusion.random_walk">
+<code class="descname">random_walk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.JumpDiffusion.random_walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates a random walk
+Parameters
+&#8212;&#8212;&#8212;-
+None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="walk.walk.RandomWalkBase">
+<em class="property">class </em><code class="descclassname">walk.walk.</code><code class="descname">RandomWalkBase</code><span class="sig-paren">(</span><em>S0</em>, <em>mu</em>, <em>sigma</em>, <em>T</em>, <em>dt=0.00396825396</em><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.RandomWalkBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base Class for creating random walk classes</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#walk.walk.RandomWalkBase.monte_carlo_walks" title="walk.walk.RandomWalkBase.monte_carlo_walks"><code class="xref py py-obj docutils literal"><span class="pre">monte_carlo_walks</span></code></a>([n])</td>
+<td>Generates n random walks</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#walk.walk.RandomWalkBase.plot" title="walk.walk.RandomWalkBase.plot"><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code></a>()</td>
+<td>plots the random walk</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#walk.walk.RandomWalkBase.random_walk" title="walk.walk.RandomWalkBase.random_walk"><code class="xref py py-obj docutils literal"><span class="pre">random_walk</span></code></a>()</td>
+<td>generates a random walk</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#walk.walk.RandomWalkBase.to_df" title="walk.walk.RandomWalkBase.to_df"><code class="xref py py-obj docutils literal"><span class="pre">to_df</span></code></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="walk.walk.RandomWalkBase.N">
+<code class="descname">N</code><em class="property"> = None</em><a class="headerlink" href="#walk.walk.RandomWalkBase.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>int : number of steps</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="walk.walk.RandomWalkBase.S">
+<code class="descname">S</code><em class="property"> = None</em><a class="headerlink" href="#walk.walk.RandomWalkBase.S" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of double : used to store generated random walk</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="walk.walk.RandomWalkBase.df">
+<code class="descname">df</code><em class="property"> = None</em><a class="headerlink" href="#walk.walk.RandomWalkBase.df" title="Permalink to this definition">¶</a></dt>
+<dd><p>pandas df: used to store multiple walks for monte carlo</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="walk.walk.RandomWalkBase.monte_carlo_walks">
+<code class="descname">monte_carlo_walks</code><span class="sig-paren">(</span><em>n=50</em><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.RandomWalkBase.monte_carlo_walks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates n random walks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>n</strong> : double , optional</p>
+<blockquote>
+<div><p>number of random walks to generate</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="walk.walk.RandomWalkBase.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.RandomWalkBase.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plots the random walk</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="walk.walk.RandomWalkBase.random_walk">
+<code class="descname">random_walk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.RandomWalkBase.random_walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates a random walk
+Parameters
+&#8212;&#8212;&#8212;-
+None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="walk.walk.RandomWalkBase.t">
+<code class="descname">t</code><em class="property"> = None</em><a class="headerlink" href="#walk.walk.RandomWalkBase.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>np array : used to store every step from 0 to T</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="walk.walk.RandomWalkBase.to_df">
+<code class="descname">to_df</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.RandomWalkBase.to_df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="walk.walk.Vasick">
+<em class="property">class </em><code class="descclassname">walk.walk.</code><code class="descname">Vasick</code><span class="sig-paren">(</span><em>r</em>, <em>a</em>, <em>b</em>, <em>sigma</em>, <em>T</em>, <em>dt=0.00396825396</em><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.Vasick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#walk.walk.RandomWalkBase" title="walk.walk.RandomWalkBase"><code class="xref py py-class docutils literal"><span class="pre">walk.walk.RandomWalkBase</span></code></a></p>
+<p>Vasick model, useful in modelling short term interest rate</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">monte_carlo_walks</span></code>([n])</td>
+<td>Generates n random walks</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code>()</td>
+<td>plots the random walk</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#walk.walk.Vasick.random_walk" title="walk.walk.Vasick.random_walk"><code class="xref py py-obj docutils literal"><span class="pre">random_walk</span></code></a>()</td>
+<td>generates a random walk</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">to_df</span></code>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="walk.walk.Vasick.random_walk">
+<code class="descname">random_walk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.Vasick.random_walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates a random walk
+Parameters
+&#8212;&#8212;&#8212;-
+None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="walk.walk.main">
+<code class="descclassname">walk.walk.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#walk.walk.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-walk">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-walk" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">walk package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#walk-main-module">walk.main module</a></li>
+<li><a class="reference internal" href="#walk-market-module">walk.market module</a></li>
+<li><a class="reference internal" href="#walk-portfolio-module">walk.portfolio module</a></li>
+<li><a class="reference internal" href="#module-walk.signals">walk.signals module</a></li>
+<li><a class="reference internal" href="#walk-simulation-module">walk.simulation module</a></li>
+<li><a class="reference internal" href="#module-walk.stock">walk.stock module</a></li>
+<li><a class="reference internal" href="#module-walk.walk">walk.walk module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-walk">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/walk.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Peter Peluso.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/source/walk.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
